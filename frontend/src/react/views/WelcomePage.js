@@ -7,7 +7,7 @@ import {
   HowItWorksSection,
   WhyBlocsSection,
 } from "../components/WelcomePage";
-const WelcomePage = () => {
+export const WelcomePage = () => {
   return (
     <div id="container">
       <div id="pixi-root"></div>

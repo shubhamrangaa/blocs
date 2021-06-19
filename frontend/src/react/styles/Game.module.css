@@ -1,0 +1,29 @@
+.signupContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+}
+
+.enterGameButton {
+  font-family: monospace;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: black;
+  color: #e6e6e6;
+  cursor: pointer;
+  outline: none;
+  border: 1px solid #dadada;
+  border-radius: 0.25rem;
+}
+/*# sourceMappingURL=Game.module.css.map */

@@ -1,0 +1,19 @@
+.signupContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.enterGameButton {
+  font-family: monospace;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: black;
+  color: rgb(230, 230, 230);
+  cursor: pointer;
+  outline: none;
+  border: 1px solid rgb(218, 218, 218);
+  border-radius: 0.25rem;
+}
