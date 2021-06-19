@@ -8,6 +8,7 @@ class Player extends PIXI.Sprite {
 		this.avatar = new Avatar(color, x, y, this.setLabelLocation, gameStateService);
 		this.addChild(this.avatar);
 		this.addChild(this.label);
+		this.zIndex = 99;
 	}
 
 	setLabelLocation = (x, y) => {

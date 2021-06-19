@@ -4,9 +4,10 @@ import * as gameState from "../game-state.json";
 class Companion extends PIXI.Sprite {
 	constructor(id, username, color, x, y, gameStateService) {
 		super();
-		const {nickname} = gameStateService.companions[this.id]; 
+		// const { nickname } = gameStateService.companions[this.id];
+		let nickname = "d1vshar";
 		this.label = new CompanionLabel(nickname, x, y);
-		this.avatar = new CompanionAvatar(id, color, x, y, this.setLabelLocation);
+		this.avatar = new CompanionAvatar(id, color, x, y, this.setLabelLocation, gameStateService);
 		this.addChild(this.avatar);
 		this.addChild(this.label);
 	}
@@ -43,15 +44,14 @@ class CompanionAvatar extends PIXI.Graphics {
 
 	draw = () => {
 		requestAnimationFrame(this.draw);
-			// let X = gameState.controls.pointerX - this.position.x;
-			// let Y = gameState.controls.pointerY - this.position.y;
-			// let D = Math.sqrt(Math.pow(Y, 2) + Math.pow(X, 2));
+		// let X = gameState.controls.pointerX - this.position.x;
+		// let Y = gameState.controls.pointerY - this.position.y;
+		// let D = Math.sqrt(Math.pow(Y, 2) + Math.pow(X, 2));
 
-			// this.dX = (this.speed * X) / D;
-			// this.dY = (this.speed * Y) / D;
+		// this.dX = (this.speed * X) / D;
+		// this.dY = (this.speed * Y) / D;
 
-
-		const {x, y} = this.gameStateService.companions[this.id];
+		const { x, y } = this.gameStateService.companions[this.id];
 		this.position.set(x, y);
 		this.update();
 	};
