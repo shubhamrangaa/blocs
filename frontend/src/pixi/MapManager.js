@@ -45,8 +45,6 @@ export default class MapManager {
 
 				this.sprites.push(block);
 				if (index === 1) this.solids.push(block);
-
-				console.log(x, y, id, sprite);
 			}
 		}
 	}
