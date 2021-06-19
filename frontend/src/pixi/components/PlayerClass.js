@@ -2,10 +2,10 @@ import * as PIXI from "pixi.js";
 import * as gameState from "../game-state.json";
 
 class Player extends PIXI.Sprite {
-	constructor(username, color, x, y) {
+	constructor(username, color, x, y, gameStateService) {
 		super();
 		this.label = new Label(username, x, y);
-		this.avatar = new Avatar(color, x, y, this.setLabelLocation);
+		this.avatar = new Avatar(color, x, y, this.setLabelLocation, gameStateService);
 		this.addChild(this.avatar);
 		this.addChild(this.label);
 	}
@@ -16,13 +16,14 @@ class Player extends PIXI.Sprite {
 }
 
 class Avatar extends PIXI.Graphics {
-	constructor(color, x, y, getPosition) {
+	constructor(color, x, y, getPosition, gameStateService) {
 		super();
+		this.gameStateService = gameStateService;
 		this.interactive = true;
 
 		this.pointerDown = false;
-		this.speed = 5;
-		this.radius = 20;
+		this.speed = 3;
+		this.radius = 16;
 		this.dX = 0;
 		this.dY = 0;
 		this.getPosition = getPosition;
@@ -78,6 +79,11 @@ class Avatar extends PIXI.Graphics {
 		}
 	};
 	update = () => {
+		this.gameStateService.player = {
+			...this.gameStateService.player,
+			x: this.position.x,
+			y: this.position.y,
+		};
 		this.getPosition(this.position.x, this.position.y);
 	};
 	pointerDragging = () =>
