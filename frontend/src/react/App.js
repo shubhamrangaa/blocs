@@ -1,11 +1,12 @@
-import './App.css';
+import "./App.css";
+import WelcomePage from "./views/WelcomePage";
 
 function App() {
-  return (
-    <div>
-      
-    </div>
-  );
+	return (
+		<div>
+			<WelcomePage />
+		</div>
+	);
 }
 
 export default App;
