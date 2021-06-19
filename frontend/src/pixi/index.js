@@ -11,6 +11,7 @@ import { init as keyboardInit } from "./controllers/keyboard";
 import GameStateService from "./services/GameStateService";
 import NetworkService from "./services/NetworkService";
 import Companion from "./components/CompanionClass";
+import AgoraService from "./services/AgoraService";
 
 const gameStateService = new GameStateService();
 
@@ -32,6 +33,7 @@ world.height = 48 * 18;
 world.sortableChildren = true;
 world.position.set(24, 24);
 
+new AgoraService();
 const networkService = new NetworkService("http://127.0.0.1:5000", gameStateService, "d1vshar", 150, 150);
 
 const player1 = new Player("d1vshar", 0xff0000, 150, 150, gameStateService);
