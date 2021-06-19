@@ -1,0 +1,14 @@
+{
+	"has_started": false,
+	"is_paused": false,
+	"controller": "pointer",
+	"controls": {
+		"up": false,
+		"down": false,
+		"right": false,
+		"left": false,
+		"space": false,
+		"pointerX": null,
+		"pointerY": null
+	}
+}
