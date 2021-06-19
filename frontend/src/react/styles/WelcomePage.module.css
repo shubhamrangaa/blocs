@@ -1,0 +1,35 @@
+/* navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 4rem;
+}
+
+.navbar > div {
+  flex: 1;
+}
+
+.navbar ul {
+  gap: 2rem;
+  display: flex;
+  list-style: none;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1.5rem 1.5rem;
+  }
+  .navbar ul li {
+    display: none;
+  }
+  .navbar ul li:nth-last-child(1) {
+    display: block;
+  }
+}
+
+/* container */
+.container {
+  padding: 2rem 4rem;
+  box-sizing: border-box;
+  height: 100vh;
+}
