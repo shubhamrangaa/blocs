@@ -1,120 +1,120 @@
-const getSpriteForId = (id) => {
+const getAppearanceForId = (id) => {
 	switch (id) {
 		default:
 			return null;
 		case 0:
-			return "big-plant.png";
+			return { sprite: "big-plant.png", isRound: true };
 		case 1:
-			return "chair-bottom.png";
+			return { sprite: "chair-bottom.png", isRound: false };
 		case 2:
-			return "chair-top.png";
+			return { sprite: "chair-top.png", isRound: false };
 		case 3:
-			return "floor-middle.png";
+			return { sprite: "floor-middle.png", isRound: false };
 		case 4:
-			return "grass-left.png";
+			return { sprite: "grass-left.png", isRound: false };
 		case 5:
-			return "kitchen-right.png";
+			return { sprite: "kitchen-right.png", isRound: false };
 		case 6:
-			return "round-table.png";
+			return { sprite: "round-table.png", isRound: true };
 		case 7:
-			return "wall-left-right.png";
+			return { sprite: "wall-left-right.png", isRound: false };
 		case 8:
-			return "chair-left.png";
+			return { sprite: "chair-left.png", isRound: false };
 		case 9:
-			return "chair-right.png";
+			return { sprite: "chair-right.png", isRound: false };
 		case 10:
-			return "floor-bottom.png";
+			return { sprite: "floor-bottom.png", isRound: false };
 		case 11:
-			return "floor-right-bottom.png";
+			return { sprite: "floor-right-bottom.png", isRound: false };
 		case 12:
-			return "grass-left-top.png";
+			return { sprite: "grass-left-top.png", isRound: false };
 		case 13:
-			return "kitchen-stove.png";
+			return { sprite: "kitchen-stove.png", isRound: false };
 		case 14:
-			return "small-plant.png";
+			return { sprite: "small-plant.png", isRound: true };
 		case 15:
-			return "wall-left-top.png";
+			return { sprite: "wall-left-top.png", isRound: false };
 		case 16:
-			return "floor-left-bottom.png";
+			return { sprite: "floor-left-bottom.png", isRound: false };
 		case 17:
-			return "floor-left.png";
+			return { sprite: "floor-left.png", isRound: false };
 		case 18:
-			return "floor-top.png";
+			return { sprite: "floor-top.png", isRound: false };
 		case 19:
-			return "floor-right.png";
+			return { sprite: "floor-right.png", isRound: false };
 		case 20:
-			return "grass-right-bottom.png";
+			return { sprite: "grass-right-bottom.png", isRound: false };
 		case 21:
-			return "lamp-left.png";
+			return { sprite: "lamp-left.png", isRound: false };
 		case 22:
-			return "square-table.png";
+			return { sprite: "square-table.png", isRound: false };
 		case 23:
-			return "wall-middle.png";
+			return { sprite: "wall-middle.png", isRound: false };
 		case 24:
-			return "floor-right-top.png";
+			return { sprite: "floor-right-top.png", isRound: false };
 		case 25:
-			return "floor-top.png";
+			return { sprite: "floor-top.png", isRound: false };
 		case 26:
-			return "grass-bottom.png";
+			return { sprite: "grass-bottom.png", isRound: false };
 		case 27:
-			return "grass-left-bottom.png";
+			return { sprite: "grass-left-bottom.png", isRound: false };
 		case 28:
-			return "grass-right.png";
+			return { sprite: "grass-right.png", isRound: false };
 		case 29:
-			return "lamp-right.png";
+			return { sprite: "lamp-right.png", isRound: false };
 		case 30:
-			return "wall-bottom.png";
+			return { sprite: "wall-bottom.png", isRound: false };
 		case 31:
-			return "wall-right-bottom.png";
+			return { sprite: "wall-right-bottom.png", isRound: false };
 		case 32:
-			return "grass-right-top.png";
+			return { sprite: "grass-right-top.png", isRound: false };
 		case 33:
-			return "grass-top.png";
+			return { sprite: "grass-top.png", isRound: false };
 		case 34:
-			return "kitchen-sink.png";
+			return { sprite: "kitchen-sink.png", isRound: false };
 		case 35:
-			return "kitchen-left.png";
+			return { sprite: "kitchen-left.png", isRound: false };
 		case 36:
-			return "kitchen-middle.png";
+			return { sprite: "kitchen-middle.png", isRound: false };
 		case 37:
-			return "left-round-table.png";
+			return { sprite: "left-round-table.png", isRound: false };
 		case 38:
-			return "wall-end-bottom.png";
+			return { sprite: "wall-end-bottom.png", isRound: false };
 		case 39:
-			return "wall-right.png";
+			return { sprite: "wall-right.png", isRound: false };
 		case 40:
-			return "table-left.png";
+			return { sprite: "table-left.png", isRound: false };
 		case 41:
-			return "middle-table.png";
+			return { sprite: "middle-table.png", isRound: false };
 		case 42:
-			return "piano-bottom.png";
+			return { sprite: "piano-bottom.png", isRound: false };
 		case 43:
-			return "piano-top.png";
+			return { sprite: "piano-top.png", isRound: false };
 		case 44:
-			return "right-round-table.png";
+			return { sprite: "right-round-table.png", isRound: false };
 		case 45:
-			return "table-right.png";
+			return { sprite: "table-right.png", isRound: false };
 		case 46:
-			return "wall-end-left.png";
+			return { sprite: "wall-end-left.png", isRound: false };
 		case 47:
-			return "wall-right-top.png";
+			return { sprite: "wall-right-top.png", isRound: false };
 		case 48:
-			return "wall-end-right.png";
+			return { sprite: "wall-end-right.png", isRound: false };
 		case 49:
-			return "wall-end-top.png";
+			return { sprite: "wall-end-top.png", isRound: false };
 		case 50:
-			return "wall-joint-right.png";
+			return { sprite: "wall-joint-right.png", isRound: false };
 		case 51:
-			return "wall-joint-bottom.png";
+			return { sprite: "wall-joint-bottom.png", isRound: false };
 		case 52:
-			return "wall-joint-left.png";
+			return { sprite: "wall-joint-left.png", isRound: false };
 		case 53:
-			return "wall-joint-top.png";
+			return { sprite: "wall-joint-top.png", isRound: false };
 		case 54:
-			return "wall-left-bottom.png";
+			return { sprite: "wall-left-bottom.png", isRound: false };
 		case 55:
-			return "wall-top-bottom.png";
+			return { sprite: "wall-top-bottom.png", isRound: false };
 	}
 };
 
-export default getSpriteForId;
+export default getAppearanceForId;
