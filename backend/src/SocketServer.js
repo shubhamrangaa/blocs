@@ -8,7 +8,7 @@ export default class SocketServer {
     this.httpServer = createServer();
     this.io = new Server(this.httpServer, {
       cors: {
-        origin: 'http://localhost:3000',
+        origin: 'https://blocs-frontend.vercel.app/',
         methods: ['GET', 'POST'],
       },
     });
