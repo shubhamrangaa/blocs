@@ -17,7 +17,7 @@ const updateCharacterState = (player) => {
 	// gameState.y = player.getBounds().y;
 	gameState.x = player.position.x;
 	gameState.y = player.position.y;
-	console.log(gameState);
+	// console.log(gameState);
 };
 
 export { collideProps, updateCharacterState };
