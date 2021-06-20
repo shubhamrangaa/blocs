@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import PixiApp from "../../pixi/";
 
-// sign in
-import firebase from "../config/firebase";
-import { useAuthState } from "react-firebase-hooks/auth";
 import styles from "../styles/Game.module.css";
 const StartButton = () => {
   const [canvasLoaded, setCanvasLoaded] = useState(false);
