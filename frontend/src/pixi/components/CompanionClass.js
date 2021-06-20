@@ -2,12 +2,10 @@ import * as PIXI from "pixi.js";
 import * as gameState from "../game-state.json";
 
 class Companion extends PIXI.Sprite {
-	constructor(id, username, color, x, y, gameStateService) {
+	constructor(id, username, color, x, y) {
 		super();
-		// const { nickname } = gameStateService.companions[this.id];
-		let nickname = "d1vshar";
-		this.label = new CompanionLabel(nickname, x, y);
-		this.avatar = new CompanionAvatar(id, color, x, y, this.setLabelLocation, gameStateService);
+		this.label = new CompanionLabel(username, x, y);
+		this.avatar = new CompanionAvatar(id, color, x, y, this.setLabelLocation);
 		this.addChild(this.avatar);
 		this.addChild(this.label);
 	}
@@ -17,14 +15,11 @@ class Companion extends PIXI.Sprite {
 	};
 }
 
-// gameStateService
-
 class CompanionAvatar extends PIXI.Graphics {
-	constructor(id, color, x, y, getPosition, gameStateService) {
+	constructor(id, color, x, y, getPosition) {
 		super();
 
 		this.id = id;
-		this.gameStateService = gameStateService;
 
 		this.speed = 3;
 		this.radius = 16;
@@ -51,8 +46,7 @@ class CompanionAvatar extends PIXI.Graphics {
 		// this.dX = (this.speed * X) / D;
 		// this.dY = (this.speed * Y) / D;
 
-		const { x, y } = this.gameStateService.companions[this.id];
-		this.position.set(x, y);
+		// this.position.set(x, y);
 		this.update();
 	};
 	update = () => {
