@@ -10,5 +10,10 @@
 		"space": false,
 		"pointerX": null,
 		"pointerY": null
-	}
+	},
+	"id": null,
+	"x": 150,
+	"y": 150,
+	"username": "khikhi",
+	"companionsData": []
 }
