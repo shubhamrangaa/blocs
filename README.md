@@ -1,19 +1,21 @@
 # 💻 Project Name
 
-## How You Doin'?
+## Blocs - Virtual Spaces
 
 # 🚀 Tagline
 
-## Improving Mental Health One Click at a Time!
+### Get rid of boring discord servers! Experience virtual events in a whole new way!
 
 # 💡 The Problem it solves
-
-# 💻 Brief Description of Product :
 
 # 🧠 Challenges we ran into
 
 # 🔨 Technologies Used :
 
+- Socket IO
+- PIXI JS
+- Agora
+- Node JS
 - React
 - NextJS
 - HTML/CSS/JavaScript
@@ -22,7 +24,7 @@
 
 # 🔗 Links
 
-- github
+- GitHub: https://github.com/21VAibhavGArg/blocs
 
 # 🎥 Video Demo
 
@@ -31,15 +33,4 @@
 
 # 📷 Pictures
 
-<!-- ![Test Image 1](Rectangle-2.png) -->
-
-# 📚 References
-
-- Flask
-- Sklearn
-- vaderSentiment
-- NLTK
-- Next.js - Docs
-- Firebase Docs
-- Material UI - Docs
-- Flutter and Dart Docs
+![Test Image 1](UI.png)
