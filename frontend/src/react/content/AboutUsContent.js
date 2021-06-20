@@ -4,7 +4,7 @@ const DeveloperContent = [
     links: [
       {
         name: "Github",
-        href: "https://github.com/manavendrasen",
+        href: "https://github.com/21VAibhavGArg",
       },
       {
         name: "Linkedin",
@@ -17,11 +17,11 @@ const DeveloperContent = [
     links: [
       {
         name: "Github",
-        href: "https://github.com/manavendrasen",
+        href: "https://github.com/d1vshar",
       },
       {
         name: "Linkedin",
-        href: "https://github.com/manavendrasen",
+        href: "https://linked.com/in/d1vshar",
       },
     ],
   },
@@ -30,7 +30,7 @@ const DeveloperContent = [
     links: [
       {
         name: "Github",
-        href: "https://github.com/manavendrasen",
+        href: "https://github.com/shubhamrangaa",
       },
       {
         name: "Linkedin",

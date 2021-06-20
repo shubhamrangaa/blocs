@@ -16,10 +16,9 @@ const HeroSection = () => {
       <div id={stars3}></div>
       <h1>Blocs - Virtual Spaces</h1>
       <p>
-        Duis dolor aliquip anim adipisicing qui sunt sit exercitation
-        reprehenderit elit incididunt. Irure voluptate eiusmod in duis officia
-        minim excepteur occaecat est laboris do labore cupidatat. Irure ea amet
-        aliquip non enim ullamco eiusmod officia.
+        Redefining virtual events.
+        <br />
+        A 2D virtual environment for hosting events and classroom activities. Gamify your virtual activities.
       </p>
       <div className={styles.callToAction}>
         <StartButton />

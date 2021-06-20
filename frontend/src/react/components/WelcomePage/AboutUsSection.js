@@ -22,12 +22,8 @@ const AboutUsSection = () => {
           })}
         </div>
         <p>
-          Magna nulla sit duis et ea reprehenderit voluptate enim sit qui duis
-          laboris. Nulla eu adipisicing reprehenderit sunt non. Esse ipsum
-          cupidatat tempor adipisicing ut ad commodo non in amet ea labore
-          commodo. Ex et proident dolor irure reprehenderit reprehenderit esse.
-          Cupidatat mollit velit nostrud sint exercitation fugiat fugiat ut
-          officia.
+          We're engineering students at Manipal University Jaipur from 4 different corner of the country. 
+          This project was built for Hack Club NMIT's Hackbout 2.0.
         </p>
       </div>
     </div>

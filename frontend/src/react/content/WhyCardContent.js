@@ -1,18 +1,18 @@
 const WhyCardContent = [
   {
-    title: "No more boring Discord Servers!",
+    title: "Complement communication software",
     content:
-      "Need to conduct an event? We offer realtime multiplayer movement and interaction",
+      "Integration with your communication platform.",
   },
   {
-    title: "Crisp and Visual Event Updates",
+    title: "Increase participant interaction",
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu neque eget consectetur et ipsum lacus vitae vehicula pellentesque",
+      "We offer in-game voice chat, text chat, interactive objects and real-time multiplayer",
   },
   {
-    title: "Network like a pro with audio rooms",
+    title: "Easy to deploy",
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu neque eget consectetur et ipsum lacus vitae vehicula pellentesque",
+      "Fully customizable maps and light weight backend for deployment on servers",
   },
 ];
 

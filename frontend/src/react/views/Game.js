@@ -1,12 +1,19 @@
-import React, { useState } from "react";
-import StartButton from "../components/StartButton";
+import React, { useEffect } from "react";
 import ChatSection from "../components/GamePage/ChatSection";
 
-import styles from "../styles/Game.module.css";
-
 import { layout, controller } from "../styles/Layout.module.css";
+import PixiApp from "../../pixi";
 export const Game = () => {
-  const [show, setShow] = useState(false);
+
+  const loadCanvas = () => {
+    let PixiRoot = document.getElementById("pixi-root");
+    PixiRoot.appendChild(PixiApp.view);
+  };
+
+  useEffect(() => {
+    loadCanvas();
+  }, []);
+
   return (
     <div className={layout}>
       <div id="container">
@@ -14,7 +21,6 @@ export const Game = () => {
       </div>
       <div className={controller}>
         {/* <h1 style={{ hidden: `${show}` }}>Game Page</h1> */}
-        <StartButton />
         <ChatSection />
       </div>
     </div>
