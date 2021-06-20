@@ -4,6 +4,7 @@
 }
 
 .controller {
+  width: 100%;
   padding: 2rem;
   box-sizing: border-box;
   display: flex;
@@ -11,6 +12,6 @@
   justify-content: flex-start;
 }
 
-.controller {
+/* .controller {
   margin-left: auto;
-}
+} */

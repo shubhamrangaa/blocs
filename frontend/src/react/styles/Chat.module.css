@@ -1,0 +1,80 @@
+.section {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  gap: 1rem;
+  /* width: 100%; */
+  overflow-y: scroll;
+  height: 80vh;
+}
+
+.chatHeadSent {
+  width: 100%;
+  column-gap: 1rem;
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+}
+
+.chatHeadReceived {
+  width: 100%;
+  /* column-gap: 1rem; */
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
+
+.chatBubble {
+  font-size: 0.9rem;
+  padding: 1rem;
+  background-color: #222637;
+  border-radius: 16px;
+}
+
+.profile {
+  /* width: min-content; */
+  background-color: red;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  align-self: flex-end;
+}
+.chatMessageContainer > p {
+  font-size: 0.8rem;
+}
+.input {
+  padding: 0.5rem;
+  border-radius: 8px;
+  outline: none;
+  /* color: white; */
+  width: 100%;
+  font-size: 1rem;
+  font-family: "Space Mono";
+}
+
+.button {
+  padding: 0.5rem;
+  background-color: #404767;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-weight: 500;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #181a25;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #222637;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #343a53;
+}
