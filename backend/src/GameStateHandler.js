@@ -1,3 +1,6 @@
+import pino from 'pino';
+
+const logger = pino();
 export default class GameStateHandler {
   constructor(io) {
     this.io = io;
@@ -10,18 +13,19 @@ export default class GameStateHandler {
       nickname, x, y,
     };
 
-    console.log(this.players);
+    logger.info(`Joined: ${JSON.stringify(this.players[socket.id])}`);
 
     this.playerSockets[socket.id] = socket;
   }
 
   deletePlayer(id) {
+    logger.info(`Left: ${JSON.stringify(this.players[id])}`);
+
     delete this.players[id];
     delete this.playerSockets[id];
   }
 
   setPostionForPlayer(id, x, y) {
-    console.log(id, x, y);
     const player = this.players[id];
     player.x = x;
     player.y = y;

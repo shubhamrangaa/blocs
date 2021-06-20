@@ -1,90 +1,52 @@
 import { io } from "socket.io-client";
-
-/**
- * Steps:
- * 1.) send register
- * 2.) receive init
- * every 500ms:
- * 3.) send poschange & receive stateupdate
- * 
- * init -> init my gamestate. sent after register
- * stateupdate -> only received after init is received
- * register -> send player details
- * poschange -> change my position
- */
+import * as gameState from "../game-state.json";
 
 export default class NetworkService {
-  constructor(url, gameStateService) {
-    this.socket = io(url, { reconnection: false });
-    this.gameStateService = gameStateService;
+	constructor(url) {
+		this.socket = io(url, { reconnection: false });
 
-    this.socket.on('connect', () => console.log("Connected to server!"));
+		this.socket.on("connect", () => console.log("Connected to server!"));
 
-    // this will only be received after init is called.
-    this.socket.on('stateupdate', (gameState) => {
-      delete gameState[this.socket.id];
-      this.gameStateService.companions = gameState;
-    });
-  }
+		// this will only be received after init is called.
+		this.socket.on("stateupdate", (newGameState) => {
+			console.log(newGameState);
+			delete newGameState[this.socket.id];
+			let companionsObj = newGameState;
+			let companionsArray = [];
+			Object.keys(companionsObj).forEach((id) => {
+				companionsArray.push({ id, username: companionsObj[id].nickname, x: companionsObj[id].x, y: companionsObj[id].y });
+			});
+			console.log(companionsArray);
+			gameState.companionsData = companionsArray;
+		});
+	}
 
-  async init() {
-    this.socket.emit("register", this.gameStateService.player);
+	async init() {
+		let registerData = { nickname: gameState.username, x: gameState.x, y: gameState.y };
+		this.socket.emit("register", registerData);
 
-    return new Promise((resolve, reject) => {
-      this.socket.on("init", (initialGameState) => {
-        if (!initialGameState) reject();
+		return new Promise((resolve, reject) => {
+			this.socket.on("init", (initialGameState) => {
+				if (!initialGameState) reject();
 
-        delete initialGameState[this.socket.id];
-        this.gameStateService.player.id = this.socket.id;
-        this.gameStateService.companions = initialGameState;
-        resolve();
-      });
-    });
-  }
+				delete initialGameState[this.socket.id];
+				gameState.id = this.socket.id;
+				gameState.companionsData = this.formCompanionData(initialGameState);
+				resolve();
+			});
+		});
+	}
 
-  poschange() {
-    console.log("service" ,this.gameStateService.player);
-    this.socket.emit("poschange", this.gameStateService.player.x, this.gameStateService.player.y);
-  }
+	poschange() {
+		// console.log("service", this.gameStateService.player);
+		this.socket.emit("poschange", gameState.x, gameState.y);
+	}
+
+	formCompanionData(companionsObj) {
+		let companionsArray = [];
+		Object.keys(companionsObj).forEach((id) => {
+			companionsArray.push({ id, username: companionsObj.nickname, x: companionsObj.x, y: companionsObj.y });
+		});
+		return companionsArray;
+	}
 }
-
-// export default class NetworkService {
-//   constructor(url, gameStateService, nickname, x, y) {
-//     console.log(url);
-//     this.socket = io(url);
-//     this.gameStateService = gameStateService;
-//     this.connectAsPlayer(nickname, x, y);
-
-//     this.socket.on('stateupdate', (gamestate) => {
-//       delete gamestate[this.socket.id];
-
-//       this.gameStateService.companions = gamestate;
-//     });
-
-//     setInterval(this.sendPlayerStateUpdate.bind(this), 500);
-//   }
-
-//   sendPlayerStateUpdate() {
-//     this.socket.emit('posupdate', this.gameStateService.player.x, this.gameStateService.player.y);
-//   }
-
-//   connectAsPlayer(nickname, x, y) {
-//     const idPromise = new Promise((resolve, reject) => {
-//       this.socket.on('connect', () => {
-//         if (this.socket.connected) {
-//           resolve(this.socket.id);
-//           console.log("Connected to server!");
-//         } else reject(null);
-//       });
-//     });
-
-//     Promise.all([idPromise]).then(res => {
-//       this.gameStateService.player = {
-//         ...this.gameStateService.player,
-//         id: res[0]
-//       }
-//     });
-    
-//     this.socket.emit('entergame', nickname, x, y);
-//   }
-// }

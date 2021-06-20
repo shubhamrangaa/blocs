@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PixiApp from "../../pixi/";
+
 import styles from "../styles/Game.module.css";
 const StartButton = () => {
   const [canvasLoaded, setCanvasLoaded] = useState(false);
@@ -17,12 +18,17 @@ const StartButton = () => {
     setCanvasLoaded(false);
   };
 
+  const buttonHandler = () => {
+    if (!canvasLoaded) {
+      loadCanvas();
+    } else {
+      unloadCanvas();
+    }
+  };
+
   return (
     <div>
-      <button
-        className={styles.enterGameButton}
-        onClick={!canvasLoaded ? loadCanvas : unloadCanvas}
-      >
+      <button className={styles.enterGameButton} onClick={buttonHandler}>
         {!canvasLoaded ? "Enter Space" : "End Space"}
       </button>
     </div>

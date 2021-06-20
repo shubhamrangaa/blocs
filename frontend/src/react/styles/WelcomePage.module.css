@@ -1,15 +1,31 @@
 /* navbar */
+nav {
+  position: sticky;
+  background-color: #080010;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
-  padding: 2rem 4rem;
+  align-items: center;
+  height: 80px;
+  padding: 0 4rem;
+  box-sizing: border-box;
 }
 
 .navbar > div {
   flex: 1;
 }
 
+.navbar a {
+  color: white;
+}
+
 .navbar ul {
+  align-items: center;
   gap: 2rem;
   display: flex;
   list-style: none;
@@ -29,7 +45,115 @@
 
 /* container */
 .container {
-  padding: 2rem 4rem;
+  /* border: 3px solid green; */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 8rem;
+  text-align: center;
   box-sizing: border-box;
-  height: 100vh;
+  height: calc(100vh - 80px);
+}
+
+.containerHero {
+  background: linear-gradient(
+    0deg,
+    rgba(0, 69, 130, 1) 0%,
+    rgba(8, 0, 16, 1) 100%
+  );
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: hidden;
+  box-sizing: border-box;
+  height: calc(100vh - 80px);
+}
+
+.containerHero h1 {
+  margin-top: 8rem;
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+}
+
+.containerHero p {
+  width: 60%;
+}
+
+.callToAction {
+  margin-top: 1.5rem;
+}
+
+.containerHero h1,
+.containerHero p,
+.containerHero .callToAction {
+  padding-left: 8rem;
+}
+
+.containerHero img {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  background-size: cover;
+}
+
+@media (max-width: 768px) {
+  .containerHero h1,
+  p,
+  .callToAction {
+    padding-right: 2rem;
+    padding-left: 1.5rem;
+  }
+  .containerHero {
+    padding-right: 1.5rem;
+  }
+  .containerHero p {
+    width: 100%;
+  }
+
+  .containerHero h1 {
+    margin-top: 3rem;
+    font-size: 2rem;
+  }
+  .containerHero img {
+    position: absolute;
+    width: auto;
+    bottom: 0;
+    background-size: contain;
+  }
+}
+
+/* why section */
+
+.cardContainer {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.aboutUsLayoutGrid {
+  text-align: left;
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  align-items: flex-start;
+}
+
+.aboutUsLayoutGrid ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  /* flex-direction: column; */
+  gap: 1rem;
+}
+
+.aboutUsLayoutGrid .developer {
+}
+
+.developerGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
