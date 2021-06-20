@@ -3,7 +3,9 @@ import SocketServer from './SocketServer';
 
 const logger = pino();
 
-const socketServer = new SocketServer(5000);
+if (!process.env.PORT) logger.info('PORT env not set');
+
+const socketServer = new SocketServer(process.env.PORT);
 
 const socketHttp = socketServer.start();
 
