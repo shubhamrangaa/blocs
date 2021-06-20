@@ -1,0 +1,16 @@
+.layout {
+  display: flex;
+  gap: 1rem;
+}
+
+.controller {
+  padding: 2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.controller {
+  margin-left: auto;
+}
