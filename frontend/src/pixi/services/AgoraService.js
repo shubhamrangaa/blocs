@@ -25,10 +25,13 @@ export default class AgoraService {
       null
     );
 
+    this.rtc.localAudioTrack = await AgoraRTC.createMicrophoneAudioTrack();
+
     console.log("agora uid", uid);
 
-    this.rtc.localAudioTrack = await AgoraRTC.createMicrophoneAudioTrack();
-    await this.rtc.client.publish([this.rtc.localAudioTrack]);
+    this.rtc.client.on("user-joined", async () => {
+      await this.rtc.client.publish([this.rtc.localAudioTrack]);
+    });
 
     console.log("agora publish success!");
 

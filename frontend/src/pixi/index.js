@@ -33,61 +33,60 @@ world.height = 48 * 18;
 world.sortableChildren = true;
 world.position.set(24, 24);
 
-new AgoraService();
-const networkService = new NetworkService("http://127.0.0.1:5000", gameStateService, "d1vshar", 150, 150);
-
-const player1 = new Player("d1vshar", 0xff0000, 150, 150, gameStateService);
-
 gameStateService.player = {
-	id: networkService.id,
+	id: null,
 	nickname: "d1vshar",
 	x: 150,
 	y: 150,
 };
 
-let solids = [];
+// new AgoraService();
+const networkService = new NetworkService('http://127.0.0.1:5000', gameStateService)
 
-const setup = () => {
-	PixiApp.stage.addChild(world);
+networkService.init().then(() => {
+	networkService.poschange();
+	setInterval(networkService.poschange.bind(networkService), 500);
+	const player1 = new Player(0xff0000, gameStateService);
 
-	let sheet = PIXI.Loader.shared.resources["assets/spritesheet.json"].spritesheet;
+	let solids = [];
 
-	const Map = new MapManager(22, 18, 48, sheet, layers);
-	const sprites = Map.sprites;
-	solids = Map.solids;
-	sprites.forEach((sprite) => {
-		world.addChild(sprite);
-	});
+	const setup = () => {
+		PixiApp.stage.addChild(world);
 
-	Object.keys(gameStateService.companions).forEach((key) => {
-		console.log(gameStateService.companions[key]);
-		let companion = gameStateService.companions[key];
-		world.addChild(new Companion(key, companion.nickname, 0x00ff00, companion.x, companion.y, gameStateService));
-	});
+		let sheet = PIXI.Loader.shared.resources["assets/spritesheet.json"].spritesheet;
 
-	world.addChild(player1);
-};
+		const Map = new MapManager(22, 18, 48, sheet, layers);
+		const sprites = Map.sprites;
+		solids = Map.solids;
+		sprites.forEach((sprite) => {
+			world.addChild(sprite);
+		});
 
-PIXI.Loader.shared.add("assets/spritesheet.json").load(setup);
+		world.addChild(player1);
+	};
 
-const updateCompanionState = () => {
-	console.log("gamestate", gameStateService);
-	Object.keys(gameStateService.companions).forEach((key) => {
-		console.log(gameStateService.companions[key]);
-		let companion = gameStateService.companions[key];
-		world.addChild(new Companion(key, companion.nickname, 0x00ff00, companion.x, companion.y, gameStateService));
-	});
-};
+	PIXI.Loader.shared.add("assets/spritesheet.json").load(setup);
 
-updateCompanionState();
-setInterval(updateCompanionState, 2000);
+	const updateCompanionState = () => {
+		console.log("gamestate", gameStateService);
+		Object.keys(gameStateService.companions).forEach((key) => {
+			console.log(gameStateService.companions[key]);
+			let companion = gameStateService.companions[key];
+			world.addChild(new Companion(key, companion.nickname, 0x00ff00, companion.x, companion.y, gameStateService));
+		});
+	};
 
-// animation loop
-const render = () => {
-	requestAnimationFrame(render);
-	collideProps(player1.avatar, solids);
-	PixiApp.render(world);
-};
-render();
+	updateCompanionState();
+	setInterval(updateCompanionState, 2000);
+
+	// animation loop
+	const render = () => {
+		requestAnimationFrame(render);
+		collideProps(player1.avatar, solids);
+		PixiApp.render(world);
+	};
+	render();
+});
+
 
 export default PixiApp;

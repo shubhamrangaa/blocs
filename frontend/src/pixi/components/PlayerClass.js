@@ -2,9 +2,10 @@ import * as PIXI from "pixi.js";
 import * as gameState from "../game-state.json";
 
 class Player extends PIXI.Sprite {
-	constructor(username, color, x, y, gameStateService) {
+	constructor(color, gameStateService) {
 		super();
-		this.label = new Label(username, x, y);
+		const { nickname, x, y } = gameStateService.player;
+		this.label = new Label(nickname, x, y);
 		this.avatar = new Avatar(color, x, y, this.setLabelLocation, gameStateService);
 		this.addChild(this.avatar);
 		this.addChild(this.label);

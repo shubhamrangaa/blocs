@@ -16,20 +16,22 @@ export default class SocketServer {
   }
 
   sendGameState() {
-    this.io.emit('stateupdate', this.gameStateHandler.getStateObj());
+    this.io.to('initialized').emit('stateupdate', this.gameStateHandler.getStateObj());
   }
 
-  sendGlobalMessage() {
-    this.io.emit('');
-  }
+  // sendGlobalMessage() {
+  //   this.io.emit('');
+  // }
 
   start() {
     this.io.on('connection', (socket) => {
-      socket.on('entergame', (nickname, x, y) => {
-        this.gameStateHandler.addPlayer(socket.id, socket, nickname, x, y);
+      socket.on('register', (player) => {
+        this.gameStateHandler.addPlayer(socket.id, socket, player.nickname, player.x, player.y);
+        socket.emit('init', this.gameStateHandler.getStateObj());
+        socket.join('initialized');
       });
 
-      socket.on('posupdate', (x, y) => {
+      socket.on('poschange', (x, y) => {
         this.gameStateHandler.setPostionForPlayer(socket.id, x, y);
       });
 
@@ -37,15 +39,15 @@ export default class SocketServer {
         this.gameStateHandler.deletePlayer(socket.id);
       });
 
-      socket.on('messagesend', (message, recId) => {
-        if (recId) {
-          const receiverSocket = this.gameStateHandler.getSocketForPlayer(recId);
-          if (receiverSocket) {
-            receiverSocket.emit('messagereceive', { senderId: socket.id, message, dm: true });
-          }
-        }
-        this.io.emit('messagereceive', { senderId: socket.id, message });
-      });
+      // socket.on('messagesend', (message, recId) => {
+      //   if (recId) {
+      //     const receiverSocket = this.gameStateHandler.getSocketForPlayer(recId);
+      //     if (receiverSocket) {
+      //       receiverSocket.emit('messagereceive', { senderId: socket.id, message, dm: true });
+      //     }
+      //   }
+      //   this.io.emit('messagereceive', { senderId: socket.id, message });
+      // });
     });
 
     this.sendGameState();
